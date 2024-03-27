@@ -8,25 +8,25 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\בלוי שאשא\\.nuget\\packages\\": {},
+    "C:\\Users\\גולדוסר ברכה\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\DesignPatterns\\DesignPatternsProject\\DesignPatternsProject\\DesignPatternsProject.csproj",
+      "projectUniqueName": "H:\\DP\\Project\\DesignPatternsProject\\DesignPatternsProject\\DesignPatternsProject.csproj",
       "projectName": "DesignPatternsProject",
-      "projectPath": "H:\\DesignPatterns\\DesignPatternsProject\\DesignPatternsProject\\DesignPatternsProject.csproj",
-      "packagesPath": "C:\\Users\\בלוי שאשא\\.nuget\\packages\\",
-      "outputPath": "H:\\DesignPatterns\\DesignPatternsProject\\DesignPatternsProject\\obj\\",
+      "projectPath": "H:\\DP\\Project\\DesignPatternsProject\\DesignPatternsProject\\DesignPatternsProject.csproj",
+      "packagesPath": "C:\\Users\\גולדוסר ברכה\\.nuget\\packages\\",
+      "outputPath": "H:\\DP\\Project\\DesignPatternsProject\\DesignPatternsProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\בלוי שאשא\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\גולדוסר ברכה\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
