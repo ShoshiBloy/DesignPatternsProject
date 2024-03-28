@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatternsProject
+namespace DesignPatternsProject.Composite
 {
-    internal class FolderItem
+    public abstract class FolderItem
     {
+        public string Name { get; set; }
+        public abstract void Open(FolderItem folder);
+        public abstract void Update(FolderItem folder);
+        public FolderItem(string name)
+        {
+            this.Name = name;
+        }
     }
 }
