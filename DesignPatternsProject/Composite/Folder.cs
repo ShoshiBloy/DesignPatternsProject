@@ -9,26 +9,57 @@ namespace DesignPatternsProject.Composite
     public class Folder : FolderItem
     {
         public List<FolderItem> Items { get; set; }
-        public Folder(string name)
+        public Folder(string name):base(name)
         {
             Items = new List<FolderItem>();
             Name = name;
         }
-        public void Add(FolderItem item)
+        public string Add(FolderItem item)
         {
-            Items.Add(item);
+            this.Items.Add(item);
+          return  $"'{item.Name}' added to the folder";
         }
-        public void Remove(FolderItem item)
-        {
-            Items.Remove(item);
-        }
+        //public bool AddToFolder(FolderItem item)
+        //{
+        //    foreach (var item1 in Items)
+        //    {
+        //        if (item1.Name == this.Name && item1 is Folder)
+        //        {
+        //            (item1 as Folder).Items.Add(item);
+        //            Console.WriteLine("The item was added succesfully");
+        //            return true;
+        //        }
+        //        if (item1 is  Folder) { 
+        //            (item1 as Folder).AddToFolder(item);
+        //        }
+        //    }
+        //    return false;
+        //}
+        //public bool Remove(FolderItem item)
+        //{
+        //    foreach (var item1 in Items)
+        //    {
+        //        if (item1.Name == Name && item1 is Folder)
+        //        {
+        //            (item1 as Folder).Items.Remove(item);
+        //            return true;
+        //        }
+        //        if (item1 is Folder)
+        //        {
+        //            (item1 as Folder).Remove(item);
+        //        }
+        //    }
+        //    return false;
+           
+        //}
+        
 
         public override void Open(FolderItem folder)
         {
             throw new NotImplementedException();
         }
 
-        public override void Update(FolderItem folder)
+        public override string Update(FolderItem folder)
         {
             throw new NotImplementedException();
         }

@@ -13,6 +13,14 @@ namespace DesignPatternsProject.State
         }
 
         public override string Commit()
+        {   string commit;
+            File.State = new Commited(File);
+            Console.WriteLine("Enter your commit");
+            commit=Console.ReadLine();
+            return $"The commit '{commit}' was successfully executed";
+        }
+
+        public override string FinishEditing()
         {
             throw new NotImplementedException();
         }

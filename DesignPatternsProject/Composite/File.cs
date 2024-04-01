@@ -10,18 +10,27 @@ namespace DesignPatternsProject.Composite
     public class File : FolderItem
     {
         public FileState State { private get; set; }
-        public File(string name):base(name)
+        public bool Modified {get; set; }
+
+        public File(string name) : base(name)
         {
             State = new Draft(this);
+            Modified = false;
         }
         public override void Open(FolderItem folder)
         {
             throw new NotImplementedException();
         }
 
-        public override void Update(FolderItem folder)
+        public override string Update(FolderItem folder)
         {
-            throw new NotImplementedException();
+            State = new Draft(this);
+            return $"'{folder.Name}' update";
+        }
+
+        public  string Review() {
+
+            return $"The file '{this.Name}' passed a review";
         }
     }
 }

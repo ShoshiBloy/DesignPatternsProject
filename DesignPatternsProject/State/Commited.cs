@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPatternsProject.Command;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,16 +18,29 @@ namespace DesignPatternsProject.State
             throw new NotImplementedException();
         }
 
+        public override string FinishEditing()
+        {
+            throw new NotImplementedException();
+        }
+
         public override string Merge(Composite.File file)
         {
             throw new NotImplementedException();
         }
 
-    
-
         public override string RequestAReview(List<Collabrator> collabrators)
         {
-            throw new NotImplementedException();
+            if (collabrators != null)
+            {
+                Review review = new Review(collabrators, File);
+                ReviewsManager.AddReview(review);
+                File.State = new UnderReview(File);
+            }
+            else
+            {
+                File.State = new Merged(File);
+            }
+            return $"A review request has been sent for the file '{File.Name}'";
         }
 
         public override string UndoACommit()

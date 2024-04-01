@@ -10,7 +10,7 @@ namespace DesignPatternsProject.Composite
     {
         public string Name { get; set; }
         public abstract void Open(FolderItem folder);
-        public abstract void Update(FolderItem folder);
+        public abstract string Update(FolderItem folder);
         public FolderItem(string name)
         {
             this.Name = name;

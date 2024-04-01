@@ -14,7 +14,14 @@ namespace DesignPatternsProject.State
 
         public override string Commit()
         {
+
             throw new NotImplementedException();
+        }
+
+        public override string FinishEditing()
+        {
+            File.State = new Modified(File);
+            return $"File '{File.Name}' editing comleted";
         }
 
         public override string Merge(Composite.File file)
@@ -24,22 +31,7 @@ namespace DesignPatternsProject.State
 
         public override string RequestAReview(List<Collabrator> collabrators)
         {
-            int countPermissions = 0;
-            if (collabrators != null)
-            {
-                foreach (var collabrator in collabrators)
-                {
-                    if (collabrator.Review() == true)
-                    {
-                        countPermissions++;
-                    }
-                }
-                if (countPermissions > 2||countPermissions==collabrators.Count()) {
-                    File.State = new ReadyTomerged(File);
-                }
-            }
-            else File.State = new ReadyTomerged(File);
-            return $"The file '{File.Name}' is ready to merge";
+            throw new NotImplementedException();
         }
 
         public override string UndoACommit()

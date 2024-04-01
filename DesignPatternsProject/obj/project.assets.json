@@ -8,23 +8,25 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\גולדוסר ברכה\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\בלוי שאשא\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\DP\\Project\\DesignPatternsProject\\DesignPatternsProject\\DesignPatternsProject.csproj",
+      "projectUniqueName": "H:\\DesignPatterns\\DesignPatternsProject\\DesignPatternsProject\\DesignPatternsProject.csproj",
       "projectName": "DesignPatternsProject",
-      "projectPath": "H:\\DP\\Project\\DesignPatternsProject\\DesignPatternsProject\\DesignPatternsProject.csproj",
-      "packagesPath": "C:\\Users\\גולדוסר ברכה\\.nuget\\packages\\",
-      "outputPath": "H:\\DP\\Project\\DesignPatternsProject\\DesignPatternsProject\\obj\\",
+      "projectPath": "H:\\DesignPatterns\\DesignPatternsProject\\DesignPatternsProject\\DesignPatternsProject.csproj",
+      "packagesPath": "C:\\Users\\בלוי שאשא\\.nuget\\packages\\",
+      "outputPath": "H:\\DesignPatterns\\DesignPatternsProject\\DesignPatternsProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\גולדוסר ברכה\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\בלוי שאשא\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,7 +35,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -67,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

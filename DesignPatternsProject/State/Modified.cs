@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPatternsProject.Command;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,22 @@ using System.Threading.Tasks;
 
 namespace DesignPatternsProject.State
 {
-    public class ReadyTomerged : FileState
+    public class Modified : FileState
     {
-        public ReadyTomerged(Composite.File file) : base(file)
+        public Modified(Composite.File file) : base(file)
         {
         }
 
         public override string Commit()
+        {
+            string commit;
+            File.State = new Commited(File);
+            Console.WriteLine("Enter your commit");
+            commit = Console.ReadLine();
+            return $"The commit '{commit}' was successfully executed";
+        }
+
+        public override string FinishEditing()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPatternsProject.Command;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,10 @@ namespace DesignPatternsProject
 {
     public class Collabrator : User
     {
-        public bool Review()
+        
+        
+        public bool Review(Composite.File file)
         {
-            
             return true;
         }
     }
