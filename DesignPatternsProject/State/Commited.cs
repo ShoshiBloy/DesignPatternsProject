@@ -15,17 +15,17 @@ namespace DesignPatternsProject.State
 
         public override string Commit()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string FinishEditing()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string Merge(Composite.File file)
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string RequestAReview(List<Collabrator> collabrators)
@@ -35,17 +35,19 @@ namespace DesignPatternsProject.State
                 Review review = new Review(collabrators, File);
                 ReviewsManager.AddReview(review);
                 File.State = new UnderReview(File);
+                File.PushToHistory();
             }
             else
             {
                 File.State = new Merged(File);
+                File.PushToHistory();
             }
             return $"A review request has been sent for the file '{File.Name}'";
         }
 
         public override string UndoACommit()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
     }
 }

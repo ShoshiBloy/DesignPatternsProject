@@ -16,15 +16,33 @@ namespace DesignPatternsProject
 
         public Branch(string name, string type)
         {
-            this.Name = name;
-            this.Type = type;
-            this.Items = new();
+            Name = name;
+            Type = type;
+            Items = new();
         }
-        public string Add(FolderItem item)
+        public Branch(string name, string type, List<FolderItem> items)
         {
-            this.Items.Add(item);
+            Name = name;
+            Type = type;
+            Items = new();
+            foreach (var item in items)
+            {
+                Items.Add(item.Clone());
+            }
+        }
+        public Branch CreateBranch(string type)
+        {;
+            Branch CloneBranch = new(Name, type, Items);
+            return CloneBranch;
+        }
+        public string AddToBranch(FolderItem item)
+        {
+            Items.Add(item);
+            if (item is Folder)
+                (item as Folder).PushToHistory();
             return $"'{item.Name}' added to the branch";
         }
+
         //public void AddToFolder(FolderItem item)
         //{
         //    foreach (var item1 in Items) 
@@ -68,10 +86,22 @@ namespace DesignPatternsProject
 
         public string Merge(Branch branch)
         {
-            this.Items= branch.Items;
-            return $"Branch '{this.Name}' merged with branch '{branch.Name}'.";
+            if(Name==branch.Name)
+            {
+               for(int i = 0; i <Items.Count(); i++)
+                {
+                    if (Items[i] is Composite.File)
+                    {
+                        (Items[i] as Composite.File).State.Merge(branch.Items[i] as Composite.File);
+                    }
+                    else
+                    {
+                        (Items[i] as Folder).Merge((branch.Items[i] as Folder));
+                        
+                        }
+                    }return $"Branch '{this.Name}' merged with branch '{branch.Name}'.";
+                }
+            return $"Branch '{Name}' can't be merged with branch '{branch.Name}'.";
         }
-    
-        
     }
 }

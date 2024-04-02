@@ -15,28 +15,29 @@ namespace DesignPatternsProject.State
         public override string Commit()
         {
 
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string FinishEditing()
         {
             File.State = new Modified(File);
+            File.PushToHistory();
             return $"File '{File.Name}' editing comleted";
         }
 
         public override string Merge(Composite.File file)
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string RequestAReview(List<Collabrator> collabrators)
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string UndoACommit()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
     }
 }

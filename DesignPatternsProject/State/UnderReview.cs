@@ -15,42 +15,39 @@ namespace DesignPatternsProject.State
 
         public override string Commit()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string FinishEditing()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string Merge(Composite.File file)
         {
 
-            List<Review> reviews = ReviewsManager.afterReview;
-            bool permission = false;
-            foreach (Review review in reviews)
-            {
-                if (review.file.Name == file.Name)
-                    permission = review.ReviewPermission;
-            }
+            
+            bool permission = ReviewsManager.CheckPermission(file);
             if (permission)
             {
                 file = File;
                 File.State = new Merged(File);
+                File.PushToHistory();
                 return $"The file '{File.Name}' has been successfully merged";
             }
             File.State=new Draft(File);
+            File.PushToHistory();
             return $"The file '{File.Name}' has been sent for re-editing";
         }
 
         public override string RequestAReview(List<Collabrator> collabrators)
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string UndoACommit()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
     }
 }

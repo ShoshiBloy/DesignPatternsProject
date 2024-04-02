@@ -17,6 +17,7 @@ namespace DesignPatternsProject.State
         {
             string commit;
             File.State = new Commited(File);
+            File.PushToHistory();
             Console.WriteLine("Enter your commit");
             commit = Console.ReadLine();
             return $"The commit '{commit}' was successfully executed";
@@ -24,22 +25,22 @@ namespace DesignPatternsProject.State
 
         public override string FinishEditing()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string Merge(Composite.File file)
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string RequestAReview(List<Collabrator> collabrators)
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
 
         public override string UndoACommit()
         {
-            throw new NotImplementedException();
+            return File.ErrorMessage();
         }
     }
 }

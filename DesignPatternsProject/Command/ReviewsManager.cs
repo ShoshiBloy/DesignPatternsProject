@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DesignPatternsProject.Command
 {
     public class ReviewsManager
-    {   
+    {
         public List<Review> beforeReview;
         public List<Review> afterReview;
         static ReviewsManager reviewsManager;
@@ -45,14 +45,36 @@ namespace DesignPatternsProject.Command
         }
         public void DoReviews(Collabrator collabrator)
         {
-            for (int i = 0; i < beforeReview.Count; i++) {
-                if (beforeReview[i].collabrators.Contains(collabrator)) { 
-                    var reviewToDo = beforeReview[i];
-                    beforeReview.Remove(reviewToDo);
-                    bool permisssion=reviewToDo.execute(collabrator,reviewToDo.file);
-                    reviewToDo.ReviewPermission = permisssion;
-                    afterReview.Add(reviewToDo);}
+            Queue<Review> reviewsQueue = new Queue<Review>();
+            foreach (Review review in beforeReview)
+            {
+                if (review.collabrators.Contains(collabrator))
+                {
+                    reviewsQueue.Enqueue(review);
+                }
+            }
+            foreach (Review review in reviewsQueue)
+            {
+                var reviewToDo = review;
+                beforeReview.Remove(reviewToDo);
+                reviewsQueue.Dequeue();
+                bool permisssion = reviewToDo.execute(collabrator, reviewToDo.file);
+                reviewToDo.ReviewPermission = permisssion;
+                afterReview.Add(reviewToDo);
             }
         }
+        public bool CheckPermission(Composite.File file)
+        {
+            
+            foreach (var item in afterReview)
+            {
+                if (item.file == file)
+                    return item.ReviewPermission;
+            }
+            return false;
+        }
+
+
     }
 }
+

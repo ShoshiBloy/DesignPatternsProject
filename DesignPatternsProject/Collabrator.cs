@@ -9,8 +9,14 @@ namespace DesignPatternsProject
 {
     public class Collabrator : User
     {
-        
-        
+        public bool Message { get; set; }
+        public Collabrator(string name, int password):base(name,password) { 
+            Message = false;
+        }
+        public void HasAMessage()
+        {
+            Message = true;
+        }
         public bool Review(Composite.File file)
         {
             return true;
